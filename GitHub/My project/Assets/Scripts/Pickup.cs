@@ -6,9 +6,9 @@ public class Pickup : MonoBehaviour
 {
     bool isHolding = false;
     [SerializeField]
-    float throwForce = 600f;
+    float throwForce = 20000f;
     [SerializeField]
-    float maxDistance = 3f;
+    float maxDistance = 10f;
     float distance;
 
     TempParent tempParent;
