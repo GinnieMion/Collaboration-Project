@@ -1,16 +1,21 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void StartButton()
     {
-        
+        SceneManager.LoadScene("Collaboration Project");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void options()
     {
-        
+
+    }
+
+    public void quit()
+    {
+        Application.Quit();
     }
 }
