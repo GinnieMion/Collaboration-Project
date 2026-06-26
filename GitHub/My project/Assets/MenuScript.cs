@@ -9,13 +9,14 @@ public class MenuScript : MonoBehaviour
         SceneManager.LoadScene("Collaboration Project");
     }
 
-    public void options()
+    public void OptionButton()
     {
 
     }
 
-    public void quit()
+    public void QuitButton()
     {
+        Debug.Log("Click recognised.");
         Application.Quit();
     }
 }
