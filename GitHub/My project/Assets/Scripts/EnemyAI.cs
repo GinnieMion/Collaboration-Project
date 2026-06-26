@@ -22,6 +22,8 @@ public class EnemyAI : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    public GameObject projectile;
+
     private void Awake()
     {
         player = GameObject.Find("PlayerObj").transform;
@@ -56,7 +58,7 @@ public class EnemyAI : MonoBehaviour
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z, randomZ);
+        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
         if(Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
@@ -76,7 +78,7 @@ public class EnemyAI : MonoBehaviour
         if (!alreadyAttacked)
         {
 
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).Getcomponent<Rigidbody>();
+            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
 
             rb.AddForce(transform.forward *32, ForceMode.Impulse);
             rb.AddForce(transform.up * 8, ForceMode.Impulse);
