@@ -43,7 +43,7 @@ public class ProjectileGun : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
 
-        if (readyToShoot && shooting & !reloading && bulletsLeft > 0) Reload();
+        if (readyToShoot && shooting & !reloading && bulletsLeft <= 0) Reload();
 
         if(readyToShoot && shooting && bulletsLeft > 0)
         {
@@ -55,6 +55,7 @@ public class ProjectileGun : MonoBehaviour
 
     private void Shoot()
     {
+        Debug.Log("shooting");
         readyToShoot = false;
 
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
@@ -103,7 +104,7 @@ public class ProjectileGun : MonoBehaviour
     private void Reload()
     {
         reloading = true;
-        Invoke("Reloadfinished", reloadTime);
+        Invoke("ReloadFinshed", reloadTime);
     }
 
     private  void ReloadFinshed()
